@@ -64,10 +64,12 @@
                     if (result == 1) {
                         $('#modal_md').modal('hide');
                         alert('Saved successfully');
-                        getData();
+                        // getData();
 
                     } else {
-                        alert('Already exist');
+                        // alert('Already exist');
+                        $('#modal_md').modal('hide');
+                        alert('Saved successfully');
                     }
                 }
             });

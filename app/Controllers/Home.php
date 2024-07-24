@@ -31,8 +31,8 @@ class Home extends BaseController
 
     public function add()
     {
-        
-        return view('template/header') . view('addpage') . view('template/footer');
+        return view('addpage');
+        // return view('template/header') . view('addpage') . view('template/footer');
     }
 
     public function addData()
@@ -53,8 +53,8 @@ class Home extends BaseController
     //     <td>`.$row->name.`<td>
     //     <td>`.$row->mobile_number.`<td>
     //     <td>`.$row->email.`<td>
-    //     <td><button class="editpenbtn" type="button" onclick="showModal('`? = base_url() . ' edit/' .$row->id . '`,`Edit Table`)"></button><td>
-    //     <td><td>
+    //     <td><button class="editpenbtn" type="button" onclick="showModal('` base_url() . ' edit/' .$row->id . '`,`Edit Table`)"></button><td>
+    //     <td><button class="editpenbtn" type="button" onclick="showModal('`base_url() . ' edit/' .$row->id . '`,`Edit Table`)"></button><td>
     //     <tr>`;
 
     //    }
