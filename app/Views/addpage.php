@@ -1,4 +1,4 @@
-<form id="addform" >
+<form id="addform">
     <div class="row">
         <div class="col-md-12">
             <div class="purchasegrp">
@@ -53,7 +53,7 @@
             var dataForm = new FormData(form);
             $.ajax({
                 type: 'POST',
-                url: '<?=base_url()?>Home/addData',
+                url: '<?= base_url() ?>Home/addData',
                 data: dataForm,
                 cache: false,
                 contentType: false,
@@ -68,6 +68,10 @@
                     } else {
                         alert('Already exist');
                     }
+                },
+                error: function (xhr, status, error) {
+                    alert('Error occurred while saving data: ' + error);
+                   
                 }
             });
         });
