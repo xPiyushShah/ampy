@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\CLI\Console;
 use CodeIgniter\Controller;
+use Config\Services;
 
 class Home extends BaseController
 {
@@ -14,25 +14,22 @@ class Home extends BaseController
     {
         $this->db = \Config\Database::connect();
         $this->datatable = $this->db->table('datatable');
-        $this->setCorsHeaders();
+
+        // Load CORS service
+        $this->cors = Services::response()
+            ->setHeader('Access-Control-Allow-Origin', '*')
+            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+            ->setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     }
 
-    protected function setCorsHeaders()
-    {
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    }
     public function index()
     {
-
         return view('template/header') . view('index') . view('template/footer');
     }
 
     public function add()
     {
-        return view('addpage');
-        // return view('template/header') . view('addpage') . view('template/footer');
+        return view('template/header') . view('addpage') . view('template/footer');
     }
 
     public function addData()
@@ -40,16 +37,16 @@ class Home extends BaseController
         $data = $this->request->getVar();
         $dt = $this->datatable->insert($data);
 
-        echo json_encode(['succeed' => $dt]);
+        return $this->response->setJSON(['succeed' => $dt]);
     }
 
     public function getData()
     {
         $data = $this->datatable->get()->getResult(); 
-
+    
         $tr = ''; 
         $i = 1;
-
+    
         foreach ($data as $row) {
             $tr .= '<tr>
                         <td>' . $i . '</td>
@@ -67,9 +64,22 @@ class Home extends BaseController
                             </button>
                         </td>
                     </tr>';
-                    $i++;
+            $i++;
         }
+            echo json_encode($tr);
+    }
 
-        echo json_encode($tr);
+    public function edit($id)
+    {
+        $data['edit'] = $this->datatable->getWhere(['id' => $id])->getRow();
+        return view('edit', $data);
+    }
+
+    public function update($id)
+    {
+        $datainput = $this->request->getVar();
+        $result = $this->datatable->update($id, $datainput);
+        return $this->response->setJSON($result);
     }
 }
+

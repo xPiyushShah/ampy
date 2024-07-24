@@ -9,7 +9,9 @@
                                 <div class="button_su">
                                     <span class="su_button_circle">
                                     </span>
-                                    <button type="button" class="hrbtns contractbtn addbttn" onclick="showModal('<?= base_url() ?>add','Add Order')"> <span class="button_text_container">
+                                    <button type="button" class="hrbtns contractbtn addbttn"
+                                        onclick="showModal('<?= base_url() ?>add','Add Order')"> <span
+                                            class="button_text_container">
                                             <i class="fa fa-plus"></i> ADD
                                         </span></button>
                                 </div>
@@ -19,7 +21,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="demo-html mt-0">
-                                    <table class="example display dataTable display responsive nowrap tblalign table borderless" style="width: 100%" id="example" aria-describedby="example_info">
+                                    <table
+                                        class="example display dataTable display responsive nowrap tblalign table borderless"
+                                        style="width: 100%" id="example" aria-describedby="example_info">
                                         <thead class="theadrow">
                                             <tr>
                                                 <th>S.No</th>
@@ -32,30 +36,33 @@
                                                 <th>
                                                     Email
                                                 </th>
+                                                <th>
+                                                    Option
+                                                </th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="appenddata">
                                             <tr>
-                                                <td>1</td>
-                                                <td>Name
-                                                <p class="header-effect ">
-                                                        <!-- <a href="sales_invoice_view_accept.html" onclick="toggleViews(1)" -->
-                                                        <a onclick="toggleViews()" data-bs-toggle="tooltip" data-placement="bottom" data-bs-title="view" data-bs-auto-close="outside">
-                                                            <img src="https://login.loyalwings.com/assets/img/view.svg" height="15px" width="15px" alt="">
-                                                        </a>
-                                                        <!-- <span class="black"> |</span> -->
-                                                        <a onclick="showModal()" data-bs-toggle="tooltip" data-bs-title="edit" data-bs-auto-close="outside">
-                                                            <img src="https://login.loyalwings.com/assets/img/edit.svg" height="15px" width="15px" alt="">
-                                                        </a>
+                                                <!-- <td>1</td>  -->
+                                                <!-- <td>Name -->
+                                                <!-- <p class="header-effect "> -->
+                                                <!-- <a href="sales_invoice_view_accept.html" onclick="toggleViews(1)" -->
+                                                <!-- <a onclick="toggleViews()" data-bs-toggle="tooltip" data-placement="bottom" data-bs-title="view" data-bs-auto-close="outside"> -->
+                                                <!-- <img src="https://login.loyalwings.com/assets/img/view.svg" height="15px" width="15px" alt=""> -->
+                                                <!-- </a> -->
+                                                <!-- <span class="black"> |</span> -->
+                                                <!-- <a onclick="showModal()" data-bs-toggle="tooltip" data-bs-title="edit" data-bs-auto-close="outside"> -->
+                                                <!-- <img src="https://login.loyalwings.com/assets/img/edit.svg" height="15px" width="15px" alt=""> -->
+                                                <!-- </a> -->
 
-                                                        <!-- <span class="black"> |</span> -->
-                                                        <a onclick="datadelete()" data-bs-toggle="tooltip" data-bs-title="delete" data-bs-auto-close="outside">
-                                                            <img src="https://login.loyalwings.com/assets/img/delete.svg" height="15px" width="15px" alt="">
-                                                        </a>
-                                                    </p>
-                                                </td>
-                                                <td>87674542</td>
-                                                <td>name@gmail.com</td>
+                                                <!-- <span class="black"> |</span> -->
+                                                <!-- <a onclick="datadelete()" data-bs-toggle="tooltip" data-bs-title="delete" data-bs-auto-close="outside"> -->
+                                                <!-- <img src="https://login.loyalwings.com/assets/img/delete.svg" height="15px" width="15px" alt=""> -->
+                                                <!-- </a> -->
+                                                <!-- </p> -->
+                                                <!-- </td> -->
+                                                <!-- <td>87674542</td> -->
+                                                <!-- <td>name@gmail.com</td>-->
                                             </tr>
                                         </tbody>
                                     </table>
@@ -72,19 +79,32 @@
                             <div class="col-md-12 relative">
                                 <div class="fixed-buttons-right">
 
-                                    <button type="button" class="editpenbtn " data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Edit Expense" id="view_edit"><i class="fa fa-edit expicon "></i></button>
-                                    <button id="view_print" type="button" class="editpenbtn" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Print"><i class="bi bi-printer expicon "></i></button>
-                                    <button id="view_pdf" type="button" class="editpenbtn" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Pdf"><i class="bi bi-file-earmark-pdf"></i></button>
-                                    <button type="button" class="editpenbtn" id="view_copy" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Copy"><i class="fa fa-clone expicon "></i></i></button>
+                                    <button type="button" class="editpenbtn " data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Edit Expense" id="view_edit"><i
+                                            class="fa fa-edit expicon "></i></button>
+                                    <button id="view_print" type="button" class="editpenbtn" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Print"><i
+                                            class="bi bi-printer expicon "></i></button>
+                                    <button id="view_pdf" type="button" class="editpenbtn" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Pdf"><i
+                                            class="bi bi-file-earmark-pdf"></i></button>
+                                    <button type="button" class="editpenbtn" id="view_copy" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Copy"><i
+                                            class="fa fa-clone expicon "></i></i></button>
                                     <!-- <button type="button" class="closexbtn close-button" id="delete_view"
                                 data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Delete"><i
                                     class="fa fa-times expicon"></i></button> -->
-                                    <button type="button" class="editpenbtn  " id="delete_view" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Delete">
+                                    <button type="button" class="editpenbtn  " id="delete_view" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Delete">
                                         <!-- <i class="fa fa-times expicon"></i> -->
                                         <img src="./delete.svg" alt="">
                                     </button>
-                                    <button type="button" onclick="toggleViews(id)" class="editpenbtn " class="contractfilter edittglbtn5 edittglbtn6 viewbtnByToggle" data-bs-toggle="tooltip" data-bs-title="Toggle Table" data-bs-original-title="" title="" data-bs-trigger="hover">
-                                        <i class="fa-solid fa-angle-left" style="font-size: 12px" aria-hidden="true"></i>
+                                    <button type="button" onclick="toggleViews(id)" class="editpenbtn "
+                                        class="contractfilter edittglbtn5 edittglbtn6 viewbtnByToggle"
+                                        data-bs-toggle="tooltip" data-bs-title="Toggle Table" data-bs-original-title=""
+                                        title="" data-bs-trigger="hover">
+                                        <i class="fa-solid fa-angle-left" style="font-size: 12px"
+                                            aria-hidden="true"></i>
                                     </button>
                                     <span id="view_invoice"></span>
                                 </div>
@@ -145,36 +165,35 @@
 
     <!-- modal -->
     <script>
-    $(document).ready(function() {
-        // Function to show modal
-        function showModal(url, title) {
-            $('#modal_md').on('shown.bs.modal', function() {
-                $('.selectpicker').selectpicker('refresh');
-            });
-            $('#modal_md').modal('show', {
-                backdrop: 'true'
-            });
-            $.ajax({
-                url: url,
-                success: function(response) {
-                    $('#modal_md .modal-title').html(title);
-                    $('#modal_md .modal-body').html(response);
-                }
-            });
-        }
+        $(document).ready(function () {
+            // Function to show modal
+            function showModal(url, title) {
+                $('#modal_md').on('shown.bs.modal', function () {
+                    $('.selectpicker').selectpicker('refresh');
+                });
+                $('#modal_md').modal('show', {
+                    backdrop: 'true'
+                });
+                $.ajax({
+                    url: url,
+                    success: function (response) {
+                        $('#modal_md .modal-title').html(title);
+                        $('#modal_md .modal-body').html(response);
+                    }
+                });
+            }
 
-        // Event listener for the button click
-        $('.addbttn').on('click', function() {
-            var baseUrl = '<?= base_url() ?>'; // Assuming base_url() is defined somewhere
-            var url = baseUrl + 'add'; // Constructing the URL
-            var title = 'Add Order'; // Title for the modal
+            // Event listener for the button click
+            $('.addbttn').on('click', function () {
+                var baseUrl = '<?= base_url() ?>'; // Assuming base_url() is defined somewhere
+                var url = baseUrl + 'add'; // Constructing the URL
+                var title = 'Add Order'; // Title for the modal
 
-            // Call the showModal function
-            showModal(url, title);
+                // Call the showModal function
+                showModal(url, title);
+            });
         });
-    });
-</script>
-
+    </script>
     <script>
         function toggleViews(id) {
             var hidden_columns = [4, 5, 6, 7];
@@ -203,7 +222,7 @@
     </script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             var table = $('#example').DataTable({
 
                 rowReorder: {
@@ -219,47 +238,73 @@
 
                 buttons: [{
 
-                    },
+                },
 
-                    {
-                        text: '<i class="fa-solid fa-arrow-rotate-right p-1" style="font-size:.9rem"></i>'
-                    },
-                    {
-                        text: '<button type="button" style="font-size:0.9rem; font-weight:400; border:none;padding:0;background-color: inherit;"><i class="fas fa-cog text-muted"></i> MANIPULATION</button>',
-                    },
-                    {
-                        text: '<i class="fa-solid fa-arrow-right-from-bracket"></i> EXPORT',
-                        extend: 'collection',
-                        buttons: [
-                            // '<span class="fexport"><i class="fa-regular fa-file-excel icn me-2"></i> EXCEL</span>', '<span class="fexport"><i class="fa-regular fa-file-lines icn me-2"></i> CSV</span>', '<span class="fexport"><i class="fa-regular fa-file-pdf icn me-2"></i> PDF</span>', '<span class="fexport"><i class="fa-solid fa-print me-2 icn"></i> PRINT</span>'
-                            {},
-                            {
-                                text: '<i class="fa-regular fa-file-excel icn me-2 excel-icon"></i> Excel',
-                                extend: 'excel',
+                {
+                    text: '<i class="fa-solid fa-arrow-rotate-right p-1" style="font-size:.9rem"></i>'
+                },
+                {
+                    text: '<button type="button" style="font-size:0.9rem; font-weight:400; border:none;padding:0;background-color: inherit;"><i class="fas fa-cog text-muted"></i> MANIPULATION</button>',
+                },
+                {
+                    text: '<i class="fa-solid fa-arrow-right-from-bracket"></i> EXPORT',
+                    extend: 'collection',
+                    buttons: [
+                        // '<span class="fexport"><i class="fa-regular fa-file-excel icn me-2"></i> EXCEL</span>', '<span class="fexport"><i class="fa-regular fa-file-lines icn me-2"></i> CSV</span>', '<span class="fexport"><i class="fa-regular fa-file-pdf icn me-2"></i> PDF</span>', '<span class="fexport"><i class="fa-solid fa-print me-2 icn"></i> PRINT</span>'
+                        {},
+                        {
+                            text: '<i class="fa-regular fa-file-excel icn me-2 excel-icon"></i> Excel',
+                            extend: 'excel',
 
-                            },
-                            {
-                                text: '<i class="fa-regular fa-file-lines icn me-2 csv-icon"></i> CSV',
-                                extend: 'csv',
-                            },
-                            {
-                                text: '<i class="fa-regular fa-file-pdf icn me-2 pdf-icon"></i> PDF',
-                                extend: 'pdf'
-                            },
-                            {
-                                text: '<i class="fa-solid fa-print me-2 icn print-icon"></i> PRINT',
-                                extend: 'print'
-                            },
-                        ],
-                        className: 'px-3'
+                        },
+                        {
+                            text: '<i class="fa-regular fa-file-lines icn me-2 csv-icon"></i> CSV',
+                            extend: 'csv',
+                        },
+                        {
+                            text: '<i class="fa-regular fa-file-pdf icn me-2 pdf-icon"></i> PDF',
+                            extend: 'pdf'
+                        },
+                        {
+                            text: '<i class="fa-solid fa-print me-2 icn print-icon"></i> PRINT',
+                            extend: 'print'
+                        },
+                    ],
+                    className: 'px-3'
 
-                    }
+                }
 
                 ],
 
 
             });
 
+        });
+    </script>
+    <script>
+        function getData() {
+            var tabl = $('#example').DataTable();
+            tabl.destroy();
+
+            $.ajax({
+                type: 'POST',
+                url: '<?= base_url() ?>Home/getData',
+                dataType: 'json',
+                success: function (result) {
+
+                    console.log(result);
+                    // $('#appenddata').html(result);
+                    // getResponse();
+
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            getData();
         });
     </script>
 </body>

@@ -15,3 +15,6 @@ $routes->get('index', 'Home::index');
 $routes->get('add', 'Home::add');
 $routes->get('addData', 'Home::addData');
 
+$routes->get('/getData', 'Home::getData');
+
+
