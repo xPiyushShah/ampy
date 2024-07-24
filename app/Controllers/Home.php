@@ -34,50 +34,59 @@ class Home extends BaseController
 
     public function addData()
     {
-        $data = $this->request->getVar();
+        $data = [
+            'name' => $this->request->getVar('name'), 
+            'mobile_number' => $this->request->getVar('mobile_number'),
+            'email' => $this->request->getVar('email'),
+           
+        ];
         $dt = $this->datatable->insert($data);
 
         return $this->response->setJSON(['succeed' => $dt]);
+        // echo json_encode($data);
     }
 
     public function getData()
     {
-        $data = $this->datatable->get()->getResult(); 
-    
+        $data = $this->datatable->get()->getResult();
+
         $tr = "";
         $id = 1;
-        foreach($data as $row){
+        foreach ($data as $row) {
             $tr .= '<tr>
-            <td>'.$id.'</td>
-            <td>'.$row->name.' </td>
-            <td>'.$row->mobile_number.'</td>
-            <td>'.$row->email.'</td>
+            <td>' . $id . '</td>
+            <td>' . $row->name . ' </td>
+            <td>' . $row->mobile_number . '</td>
+            <td>' . $row->email . '</td>
             <td>
-            <button class="editpenbtn" type="button" onclick="showModal(\''.base_url().'edit/'.$row->id.'\', \'Edit Table\')">
+            <button class="editpenbtn" type="button" onclick="showModal(\'' . base_url() . 'edit/' . $row->id . '\', \'Edit Table\')">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </button>
-            <button class="editpenbtn" type="button" onclick="deletedata('.$row->id.')"> 
+            <button class="editpenbtn" type="button" onclick="deletedata(' . $row->id . ')"> 
                 <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
             </td>
         </tr>';
-        $id++;
+            $id++;
         }
         echo json_encode($tr);
     }
-    public function edit($id){
-        $data['edit']=$this->datatable->getwhere(['id'=>$id])->getRow();
-        echo view("editpage",$data);
+    public function edit($id)
+    {
+        $data['edit'] = $this->datatable->getwhere(['id' => $id])->getRow();
+        echo view("editpage", $data);
     }
 
-    public function update($id){
-        $editinput=$this->request->getVar();
-        $result=$this->datatable->where('id',$id)->update($editinput);
+    public function update($id)
+    {
+        $editinput = $this->request->getVar();
+        $result = $this->datatable->where('id', $id)->update($editinput);
         echo json_encode($result);
     }
 
-    public function delete($id){
-        $result=$this->datatable->where('id',$id)->delete();
+    public function delete($id)
+    {
+        $result = $this->datatable->where('id', $id)->delete();
         echo json_encode($result);
     }
 

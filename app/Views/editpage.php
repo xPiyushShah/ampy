@@ -53,7 +53,7 @@
             var dataForm = new FormData(form);
             $.ajax({
                 type: 'POST',
-                url: '<?=base_url()?>Home/update/<?=$edit->id?>',
+                url: '<?=base_url()?>update/<?=$edit->id?>',
                 data: dataForm,
                 cache: false,
                 contentType: false,
