@@ -294,7 +294,7 @@
             dataType: 'json',
             success: function(response) {
                 alert('Item deleted successfully.');
-                
+                location.reload();
                 getData()
             },
             error: function(xhr, status, error) {

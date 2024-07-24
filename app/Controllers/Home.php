@@ -35,7 +35,8 @@ class Home extends BaseController
     {
         $data = $this->request->getVar();
         $dt = $this->datatable->insert($data);
-
+        $result = 2;
+        // echo json_encode($result);
         echo json_encode(['succeed' => $dt]);
     }
 
