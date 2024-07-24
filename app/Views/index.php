@@ -272,10 +272,8 @@
                 success: function (result) {
 
                     // console.log(result);
-                    $('#appenddata').html(result);
-                    
+                    $('#appenddata').html(result)
                     // getResponse();
-
                 },
                 error: function (xhr, status, error) {
                     console.error('Error fetching data:', error);
@@ -286,5 +284,25 @@
         $(document).ready(function () {
             getData();
         });
+    </script>
+    <script>
+           function deletedata(id){
+        if (confirm("Are you sure you want to delete this item?")) {
+        $.ajax({
+            url: '<?= base_url() ?>delete/' + id,
+            type: 'POST', 
+            dataType: 'json',
+            success: function(response) {
+                alert('Item deleted successfully.');
+                
+                getData()
+            },
+            error: function(xhr, status, error) {
+                console.log(status);
+                alert('An error occurred: ' + error);
+            },
+        });
+    }
+       }
     </script>
 </body>

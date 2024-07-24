@@ -84,11 +84,11 @@ class Home extends BaseController
         echo json_encode($result);
     }
 
-    public function delete($id)
-    {
-        $result = $this->datatable->where('id', $id)->delete();
-        echo json_encode($result);
+    public function delete($id){
+        $isDeleted= $this->datatable->where(['id'=>$id])->delete();
+        echo $isDeleted;
     }
+
 
 }
 

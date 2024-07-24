@@ -207,3 +207,39 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
  7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 12:27:25 --> ArgumentCountError: Too few arguments to function App\Controllers\Home::delete(), 0 passed in C:\xampp\htdocs\ampy\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: home/delete]
+in APPPATH\Controllers\Home.php on line 87.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 12:27:26 --> ArgumentCountError: Too few arguments to function App\Controllers\Home::delete(), 0 passed in C:\xampp\htdocs\ampy\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: home/delete]
+in APPPATH\Controllers\Home.php on line 87.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 12:27:26 --> ArgumentCountError: Too few arguments to function App\Controllers\Home::delete(), 0 passed in C:\xampp\htdocs\ampy\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: home/delete]
+in APPPATH\Controllers\Home.php on line 87.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 12:29:39 --> ArgumentCountError: Too few arguments to function App\Controllers\Home::delete(), 0 passed in C:\xampp\htdocs\ampy\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: POST, Route: home/delete]
+in APPPATH\Controllers\Home.php on line 87.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->delete()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
