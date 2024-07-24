@@ -274,7 +274,7 @@
                     // console.log(result);
                     $('#appenddata').html(result);
                     
-                    getResponse();
+                    // getResponse();
 
                 },
                 error: function (xhr, status, error) {

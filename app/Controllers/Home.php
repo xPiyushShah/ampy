@@ -49,47 +49,37 @@ class Home extends BaseController
         foreach($data as $row){
             $tr .= '<tr>
             <td>'.$id.'</td>
-            <td>
-                '.$row->name.'
-                <p class="header-effect ">
-                    <!-- <a href="sales_invoice_view_accept.html" onclick="toggleViews(1)" -->
-                    <a onclick="toggleViews(1)" data-bs-toggle="tooltip"
-                        data-placement="bottom" data-bs-title="view"
-                        data-bs-auto-close="outside">
-                        <img src="./assets/img/view.svg" height="15px" width="15px" alt="">
-                    </a>
-                    <!-- <span class="black"> |</span> -->
-                    <a onclick="showModal(`'.base_url().'edit/'.$row->id.'`,`EDIT`)"
-                        data-bs-toggle="tooltip" data-bs-title="edit"
-                        data-bs-auto-close="outside">
-                        <img src="./assets/img/edit.svg" height="15px" width="15px" alt="">
-                    </a>
-
-                    <!-- <span class="black"> |</span> -->
-                    <a onclick="datadelete('.$row->id.')" data-bs-toggle="tooltip" data-bs-title="delete"
-                        data-bs-auto-close="outside">
-                        <img src="./assets/img/delete.svg" height="15px" width="15px" alt="">
-                    </a>
-                </p>
-            </td>
+            <td>'.$row->name.' </td>
             <td>'.$row->mobile_number.'</td>
             <td>'.$row->email.'</td>
+            <td>
+            <button class="editpenbtn" type="button" onclick="showModal(\''.base_url().'edit/'.$row->id.'\', \'Edit Table\')">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </button>
+            <button class="editpenbtn" type="button" onclick="deletedata('.$row->id.')"> 
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+            </td>
         </tr>';
         $id++;
         }
         echo json_encode($tr);
     }
-    public function edit($id)
-    {
-        $data['edit'] = $this->datatable->getWhere(['id' => $id])->getRow();
-        return view('edit', $data);
+    public function edit($id){
+        $data['edit']=$this->datatable->getwhere(['id'=>$id])->getRow();
+        echo view("editpage",$data);
     }
 
-    public function update($id)
-    {
-        $datainput = $this->request->getVar();
-        $result = $this->datatable->update($id, $datainput);
-        return $this->response->setJSON($result);
+    public function update($id){
+        $editinput=$this->request->getVar();
+        $result=$this->datatable->where('id',$id)->update($editinput);
+        echo json_encode($result);
     }
+
+    public function delete($id){
+        $result=$this->datatable->where('id',$id)->delete();
+        echo json_encode($result);
+    }
+
 }
 
