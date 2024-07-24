@@ -194,6 +194,22 @@
             });
         });
     </script>
+        <script>
+        function getdatadetails() {
+            $.ajax({
+                type: 'POST',
+                url: '<?= base_url() ?>Home/getData',
+                dataType: 'json',
+                success: function(result) {
+                    var table = $('#example').DataTable
+                    table.destroy;
+                    $('#appenddata').html(result);
+                    getResponse();
+                }
+            });
+        }
+        getdatadetails();
+    </script>
     <script>
         function toggleViews(id) {
             var hidden_columns = [4, 5, 6, 7];
@@ -281,7 +297,7 @@
 
         });
     </script>
-    <script>
+    <!-- <script>
         function getData() {
             var tabl = $('#example').DataTable();
             tabl.destroy();
@@ -306,5 +322,5 @@
         $(document).ready(function () {
             getData();
         });
-    </script>
+    </script> -->
 </body>
