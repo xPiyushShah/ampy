@@ -15,8 +15,10 @@ class App extends BaseConfig
      * WITH a trailing slash:
      *
      * E.g., http://example.com/
+     * 
      */
-    public string $baseURL = 'http://localhost/task';
+
+    public string $baseURL = 'http://localhost/ampy';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

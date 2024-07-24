@@ -14,15 +14,8 @@ class Home extends BaseController
     {
         $this->db = \Config\Database::connect(); 
         $this->datatable = $this->db->table('datatable');
-        $this->setCorsHeaders();
     }
 
-    protected function setCorsHeaders()
-    {
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    }
     public function index()
     {
       
@@ -32,17 +25,21 @@ class Home extends BaseController
     public function add()
     {
         
-        return view('template/header') . view('addpage') . view('template/footer');
+        return view('addpage');
     }
 
     public function addData()
     {
-        $data = $this->request->getVar();
-        $dt = $this->datatable->insert($data);
+       
+        $data = $this->request->getPost();
+        $this->db->table('datatable')->insert($data);
+        $result = 10;
+        echo json_encode($result);
 
-        echo json_encode(['succeed'=>$dt]);
+
+        
+        echo "Data inserted successfully.";
     }
-    
     public function getData(){
        $data = $this->datatable->get()->getResult();
        $tr='';

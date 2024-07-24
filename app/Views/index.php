@@ -145,7 +145,9 @@
 
     <!-- modal -->
     <script>
-           function showModal(url, title) {
+    $(document).ready(function() {
+        // Function to show modal
+        function showModal(url, title) {
             $('#modal_md').on('shown.bs.modal', function() {
                 $('.selectpicker').selectpicker('refresh');
             });
@@ -160,7 +162,18 @@
                 }
             });
         }
-    </script>
+
+        // Event listener for the button click
+        $('.addbttn').on('click', function() {
+            var baseUrl = '<?= base_url() ?>'; // Assuming base_url() is defined somewhere
+            var url = baseUrl + 'add'; // Constructing the URL
+            var title = 'Add Order'; // Title for the modal
+
+            // Call the showModal function
+            showModal(url, title);
+        });
+    });
+</script>
 
     <script>
         function toggleViews(id) {
