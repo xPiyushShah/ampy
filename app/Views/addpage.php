@@ -34,14 +34,13 @@
     </div>
 </form>
 <script>
-
     $('#addform').formValidation({
         framework: 'bootstrap',
         fields: {
             name: {
                 validators: {
                     notEmpty: {
-                        message: 'Enter name'
+                        message: 'Enter Name'
                     },
                 },
             },
@@ -65,11 +64,8 @@
                         $('#modal_md').modal('hide');
                         alert('Saved successfully');
                         // getData();
-
                     } else {
-                        // alert('Already exist');
-                        $('#modal_md').modal('hide');
-                        alert('Saved successfully');
+                        alert('Already exist');
                     }
                 }
             });
