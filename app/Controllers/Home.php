@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\CLI\Console;
 use CodeIgniter\Controller;
 
 class Home extends Controller
@@ -31,8 +32,10 @@ class Home extends Controller
     {
        
         $data = $this->request->getPost();
-
         $this->db->table('table')->insert($data);
+        $result = 10;
+        echo json_encode($result);
+
 
         
         echo "Data inserted successfully.";
