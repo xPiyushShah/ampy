@@ -14,7 +14,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('index', 'Home::index');
 $routes->get('add', 'Home::add');
 $routes->get('addData', 'Home::addData');
-
-$routes->get('/getData', 'Home::getData');
+$routes->get('edit/(:num)', 'Home::edit/$1');
 
 

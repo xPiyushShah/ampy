@@ -42,28 +42,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="appenddata">
-                                            <tr>
-                                                <!-- <td>1</td>  -->
-                                                <!-- <td>Name -->
-                                                <!-- <p class="header-effect "> -->
-                                                <!-- <a href="sales_invoice_view_accept.html" onclick="toggleViews(1)" -->
-                                                <!-- <a onclick="toggleViews()" data-bs-toggle="tooltip" data-placement="bottom" data-bs-title="view" data-bs-auto-close="outside"> -->
-                                                <!-- <img src="https://login.loyalwings.com/assets/img/view.svg" height="15px" width="15px" alt=""> -->
-                                                <!-- </a> -->
-                                                <!-- <span class="black"> |</span> -->
-                                                <!-- <a onclick="showModal()" data-bs-toggle="tooltip" data-bs-title="edit" data-bs-auto-close="outside"> -->
-                                                <!-- <img src="https://login.loyalwings.com/assets/img/edit.svg" height="15px" width="15px" alt=""> -->
-                                                <!-- </a> -->
 
-                                                <!-- <span class="black"> |</span> -->
-                                                <!-- <a onclick="datadelete()" data-bs-toggle="tooltip" data-bs-title="delete" data-bs-auto-close="outside"> -->
-                                                <!-- <img src="https://login.loyalwings.com/assets/img/delete.svg" height="15px" width="15px" alt=""> -->
-                                                <!-- </a> -->
-                                                <!-- </p> -->
-                                                <!-- </td> -->
-                                                <!-- <td>87674542</td> -->
-                                                <!-- <td>name@gmail.com</td>-->
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -194,22 +173,6 @@
             });
         });
     </script>
-        <script>
-        function getdatadetails() {
-            $.ajax({
-                type: 'POST',
-                url: '<?= base_url() ?>Home/getData',
-                dataType: 'json',
-                success: function(result) {
-                    var table = $('#example').DataTable
-                    table.destroy;
-                    $('#appenddata').html(result);
-                    getResponse();
-                }
-            });
-        }
-        getdatadetails();
-    </script>
     <script>
         function toggleViews(id) {
             var hidden_columns = [4, 5, 6, 7];
@@ -297,7 +260,7 @@
 
         });
     </script>
-    <!-- <script>
+    <script>
         function getData() {
             var tabl = $('#example').DataTable();
             tabl.destroy();
@@ -308,9 +271,10 @@
                 dataType: 'json',
                 success: function (result) {
 
-                    console.log(result);
-                    // $('#appenddata').html(result);
-                    // getResponse();
+                    // console.log(result);
+                    $('#appenddata').html(result);
+                    
+                    getResponse();
 
                 },
                 error: function (xhr, status, error) {
@@ -322,5 +286,5 @@
         $(document).ready(function () {
             getData();
         });
-    </script> -->
+    </script>
 </body>
