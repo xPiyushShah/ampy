@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
 use Config\Services;
 
 class Home extends BaseController
@@ -34,16 +33,10 @@ class Home extends BaseController
 
     public function addData()
     {
-        $data = [
-            'name' => $this->request->getVar('name'), 
-            'mobile_number' => $this->request->getVar('mobile_number'),
-            'email' => $this->request->getVar('email'),
-           
-        ];
+        $data = $this->request->getVar();
         $dt = $this->datatable->insert($data);
 
-        return $this->response->setJSON(['succeed' => $dt]);
-        // echo json_encode($data);
+        echo json_encode(['succeed' => $dt]);
     }
 
     public function getData()
@@ -84,8 +77,9 @@ class Home extends BaseController
         echo json_encode($result);
     }
 
-    public function delete($id){
-        $isDeleted= $this->datatable->where(['id'=>$id])->delete();
+    public function delete($id)
+    {
+        $isDeleted = $this->datatable->where(['id' => $id])->delete();
         echo $isDeleted;
     }
 

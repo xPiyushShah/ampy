@@ -60,14 +60,16 @@
                 processData: false,
                 dataType: 'json',
                 success: function (result) {
-                    if (result == 1) {
+                    console.log(result);
+                    if (result['succeed'] == true) {
                         $('#modal_md').modal('hide');
                         alert('Saved successfully');
-                        // getData();
+                        getData();
                     } else {
                         alert('Already exist');
                     }
                 }
             });
         });
+
 </script>
