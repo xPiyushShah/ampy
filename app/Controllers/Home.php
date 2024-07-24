@@ -12,7 +12,7 @@ class Home extends BaseController
 
     public function __construct()
     {
-        $this->db = \Config\Database::connect(); 
+        $this->db = \Config\Database::connect();
         $this->datatable = $this->db->table('datatable');
         $this->setCorsHeaders();
     }
@@ -25,7 +25,7 @@ class Home extends BaseController
     }
     public function index()
     {
-      
+
         return view('template/header') . view('index') . view('template/footer');
     }
 
@@ -40,24 +40,36 @@ class Home extends BaseController
         $data = $this->request->getVar();
         $dt = $this->datatable->insert($data);
 
-        echo json_encode(['succeed'=>$dt]);
+        echo json_encode(['succeed' => $dt]);
     }
-    
-    public function getData(){
-       $data = $this->datatable->get()->getResult();
-       $tr='';
-       $i=1;
-    //    foreach($data as $row){{
-    //     $tr .= `<tr>
-    //     <td>`.$i.`<td>
-    //     <td>`.$row->name.`<td>
-    //     <td>`.$row->mobile_number.`<td>
-    //     <td>`.$row->email.`<td>
-    //     <td><button class="editpenbtn" type="button" onclick="showModal('` base_url() . ' edit/' .$row->id . '`,`Edit Table`)"></button><td>
-    //     <td><button class="editpenbtn" type="button" onclick="showModal('`base_url() . ' edit/' .$row->id . '`,`Edit Table`)"></button><td>
-    //     <tr>`;
 
-    //    }
+    public function getData()
+    {
+        $data = $this->datatable->get()->getResult(); 
 
-       }
+        $tr = ''; 
+        $i = 1;
+
+        foreach ($data as $row) {
+            $tr .= '<tr>
+                        <td>' . $i . '</td>
+                        <td>' . $row->name . '</td>
+                        <td>' . $row->mobile_number . '</td>
+                        <td>' . $row->email . '</td>
+                        <td>
+                            <button class="editpenbtn" type="button" onclick="showModal(\'' . base_url() . 'edit/' . $row->id . '\', \'Edit Table\')">
+                                <i class="fa-regular fa-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="editpenbtn" type="button" onclick="deletedata(' . $row->id . ')">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>';
+                    $i++;
+        }
+
+        echo json_encode($tr);
     }
+}
