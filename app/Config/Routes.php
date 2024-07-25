@@ -13,10 +13,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('add', 'Home::add');
-$routes->post('addData', 'Home::addData');
-// $routes->get('edit/(:num)', 'Home::edit/$1');
-// $routes->post('getData', 'Home::getData');
-// $routes->post('update/(:num)', 'Home::update/$1');
-// $routes->post('delete/(:num)', 'Home::delete/$1');
+$routes->get('addData', 'Home::addData');
+
+$routes->get('edit/(:num)', 'Home::edit/$1');
+$routes->post('getData', 'Home::getData');
+$routes->post('update/(:num)', 'Home::update/$1');
+$routes->post('delete/(:num)', 'Home::delete/$1');
 
 

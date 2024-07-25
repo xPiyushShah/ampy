@@ -37,7 +37,6 @@
 <script>
 $(document).ready(function () {
     $('#addform').formValidation({
-        // Form validation configuration as per your existing code
     }).on('success.form.fv', function (e) {
         e.preventDefault();
         var form = document.querySelector('#addform');
@@ -50,14 +49,13 @@ $(document).ready(function () {
             cache: false,
             contentType: false,
             processData: false,
-            dataType: 'json', // Expect JSON response
+            dataType: 'json',
             success: function (result) {
                 console.log(url);
                 if (result.succeed === true) {
                     console.log(result);
                     $('#modal_md').modal('hide');
                     alert('Saved successfully');
-                    // You might want to refresh the data table after successful save
                 } else {
                     alert('Error: Data not saved');
                 }
