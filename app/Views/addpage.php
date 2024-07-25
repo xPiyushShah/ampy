@@ -55,8 +55,9 @@ $(document).ready(function () {
                 if (result == 1) {
                     $('#modal_md').modal('hide'); 
                     toastr.success('Added successfully', 'Success');
-                    location.reload();
                     reloadDataTable();
+                    getData();
+                    location.reload();
                 } else {
                     alert('Already exists'); 
                 }
