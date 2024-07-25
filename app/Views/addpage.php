@@ -37,13 +37,14 @@
 <script>
 $(document).ready(function () {
     $('#addform').formValidation({
+
     }).on('success.form.fv', function (e) {
         e.preventDefault();
         var form = document.querySelector('#addform');
         var dataForm = new FormData(form);
 
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: '<?= base_url() ?>Home/addData',
             data: dataForm,
             cache: false,
@@ -51,19 +52,16 @@ $(document).ready(function () {
             processData: false,
             dataType: 'json',
             success: function (result) {
-                console.log(url);
-                if (result.succeed === true) {
-                    console.log(result);
-                    $('#modal_md').modal('hide');
-                    alert('Saved successfully');
+                if (result == 1) {
+                    $('#modal_md').modal('hide'); 
+                    toastr.success('Added successfully', 'Success');
+                    getData();
                 } else {
-                    alert('Error: Data not saved');
+                    alert('Already exists'); 
                 }
-            },
-            error: function (xhr, status, error) {
-                alert('Error occurred while saving data: ' + error);
             }
         });
     });
 });
+
 </script>

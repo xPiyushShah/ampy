@@ -28,21 +28,32 @@ class Home extends BaseController
 
     public function add()
     {
-        return view('template/header') . view('addpage') . view('template/footer');
-        // return view('addpage') ;
+        // return view('template/header') . view('addpage') . view('template/footer');
+        return view('addpage') ;
     }
-
     public function addData()
     {
-        $data = $this->request->getVar(); 
-        $dt = $this->db->table('datatable')->insert($data);
-            if ($dt) {
-                $response = ['succeed' => true];
+        try {
+            $data = [
+                'name' => $this->request->getVar('name'), // Replace 'column1' with your actual column names
+                'mobile_number' => $this->request->getVar('mobile_number'),
+                'email' => $this->request->getVar('email'),
+                // Add more columns as needed
+            ];
+
+            $inserted = $this->datatable->insert($data);
+
+            if ($inserted) {
+                $result = 1;
             } else {
-            
-                $response = ['succeed' => false, 'error' => 'Insertion failed'];
+                $result = 0;
             }
-        echo json_encode($response);
+
+        } catch (\Exception $e) {
+            $result = ['status' => 'error', 'message' => $e->getMessage()];
+        }
+
+        echo json_encode($result);
     }
     public function getData()
     {

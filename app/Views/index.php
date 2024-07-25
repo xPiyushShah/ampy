@@ -144,34 +144,24 @@
 
     <!-- modal -->
     <script>
-        $(document).ready(function () {
-            // Function to show modal
-            function showModal(url, title) {
-                $('#modal_md').on('shown.bs.modal', function () {
-                    $('.selectpicker').selectpicker('refresh');
-                });
-                $('#modal_md').modal('show', {
-                    backdrop: 'true'
-                });
-                $.ajax({
-                    url: url,
-                    success: function (response) {
-                        $('#modal_md .modal-title').html(title);
-                        $('#modal_md .modal-body').html(response);
-                    }
-                });
-            }
 
-            // Event listener for the button click
-            $('.addbttn').on('click', function () {
-                var baseUrl = '<?= base_url() ?>'; // Assuming base_url() is defined somewhere
-                var url = baseUrl + 'add'; // Constructing the URL
-                var title = 'Add Order'; // Title for the modal
-
-                // Call the showModal function
-                showModal(url, title);
+        function showModal(url, title) {
+            $('#modal_md').on('shown.bs.modal', function() {
+                $('.selectpicker').selectpicker('refresh');
             });
-        });
+            $('#modal_md').modal('show', {
+                backdrop: 'true'
+            });
+            $.ajax({
+                url: url,
+                success: function(response) {
+                    $('#modal_md .modal-title').html(title);
+                    $('#modal_md .modal-body').html(response);
+                }
+            });
+        }
+    </script>
+
     </script>
     <script>
         function toggleViews(id) {
