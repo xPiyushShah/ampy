@@ -33,38 +33,55 @@ class Home extends BaseController
 
     public function addData()
     {
-        $data = $this->request->getVar();
-        $dt = $this->datatable->insert($data);
-        $result = 2;
-        // echo json_encode($result);
-        echo json_encode(['succeed' => $dt]);
-    }
-
-    public function getData()
-    {
-        $data = $this->datatable->get()->getResult();
-
-        $tr = "";
-        $id = 1;
-        foreach ($data as $row) {
-            $tr .= '<tr>
-            <td>' . $id . '</td>
-            <td>' . $row->name . ' </td>
-            <td>' . $row->mobile_number . '</td>
-            <td>' . $row->email . '</td>
-            <td>
-            <button class="editpenbtn" type="button" onclick="showModal(\'' . base_url() . 'edit/' . $row->id . '\', \'Edit Table\')">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            </button>
-            <button class="editpenbtn" type="button" onclick="deletedata(' . $row->id . ')"> 
-                <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
-            </td>
-        </tr>';
-            $id++;
+        // Assuming $this->request->getVar() retrieves data from the request payload
+        $data = $this->request->getVar(); 
+    
+        // Check if $data is not empty before attempting to insert
+        if (!empty($data)) {
+            // Assuming $this->table('datatable') correctly references the 'datatable' table
+            $dt = $this->db->table('datatable')->insert($data);
+    
+            // Check if insertion was successful
+            if ($dt) {
+                // If insertion succeeded, prepare a success response
+                $response = ['succeed' => true];
+            } else {
+                // If insertion failed, prepare an error response
+                $response = ['succeed' => false, 'error' => 'Insertion failed'];
+            }
+        } else {
+            // If $data is empty, prepare an error response
+            $response = ['succeed' => false, 'error' => 'No data received'];
         }
-        echo json_encode($tr);
+    
+        // Return the response as JSON
+        echo json_encode($response);
     }
+    // public function getData()
+    // {
+    //     $data = $this->datatable->get()->getResult();
+
+    //     $tr = "";
+    //     $id = 1;
+    //     foreach ($data as $row) {
+    //         $tr .= '<tr>
+    //         <td>' . $id . '</td>
+    //         <td>' . $row->name . ' </td>
+    //         <td>' . $row->mobile_number . '</td>
+    //         <td>' . $row->email . '</td>
+    //         <td>
+    //         <button class="editpenbtn" type="button" onclick="showModal(\'' . base_url() . 'edit/' . $row->id . '\', \'Edit Table\')">
+    //             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    //         </button>
+    //         <button class="editpenbtn" type="button" onclick="deletedata(' . $row->id . ')"> 
+    //             <i class="fa fa-trash" aria-hidden="true"></i>
+    //         </button>
+    //         </td>
+    //     </tr>';
+    //         $id++;
+    //     }
+    //     echo json_encode($tr);
+    // }
     public function edit($id)
     {
         $data['edit'] = $this->datatable->getwhere(['id' => $id])->getRow();

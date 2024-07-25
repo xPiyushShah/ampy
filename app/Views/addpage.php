@@ -36,45 +36,36 @@
 
 <script>
 $(document).ready(function () {
-        $('#addform').formValidation({
-            framework: 'bootstrap',
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Please enter Name'
-                        }
-                    }
-                }
-            }
-        })
-        .on('success.form.fv', function (e) {
-            e.preventDefault();
-            var form = document.querySelector('#addform');
-            var dataForm = new FormData(form);
+    $('#addform').formValidation({
+        // Form validation configuration as per your existing code
+    }).on('success.form.fv', function (e) {
+        e.preventDefault();
+        var form = document.querySelector('#addform');
+        var dataForm = new FormData(form);
 
-            $.ajax({
-                type: 'POST',
-                url: '<?= base_url() ?>Home/addData',
-                data: dataForm,
-                cache: false,
-                contentType: false,
-                processData: false,
-                dataType: 'text',
-                success: function (result) {
+        $.ajax({
+            type: 'GET',
+            url: '<?= base_url() ?>Home/addData',
+            data: dataForm,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: 'json', // Expect JSON response
+            success: function (result) {
+                console.log(url);
+                if (result.succeed === true) {
                     console.log(result);
-                    if (result.succeed === true) {
-                        $('#modal_md').modal('hide');
-                        alert('Saved successfully');
-                        // getData(); 
-                    } else {
-                        alert('Error: Data not saved');
-                    }
-                },
-                error: function (xhr, status, error) {
-                    alert('Error occurred while saving data: ' + error);
+                    $('#modal_md').modal('hide');
+                    alert('Saved successfully');
+                    // You might want to refresh the data table after successful save
+                } else {
+                    alert('Error: Data not saved');
                 }
-            });
+            },
+            error: function (xhr, status, error) {
+                alert('Error occurred while saving data: ' + error);
+            }
         });
     });
+});
 </script>
