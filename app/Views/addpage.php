@@ -55,7 +55,8 @@ $(document).ready(function () {
                 if (result == 1) {
                     $('#modal_md').modal('hide'); 
                     toastr.success('Added successfully', 'Success');
-                    getData();
+                    location.reload();
+                    reloadDataTable();
                 } else {
                     alert('Already exists'); 
                 }
@@ -63,5 +64,7 @@ $(document).ready(function () {
         });
     });
 });
-
+function reloadDataTable() {
+    $('#exampleTable').DataTable().ajax.reload();
+}
 </script>

@@ -28,7 +28,6 @@ class Home extends BaseController
 
     public function add()
     {
-        // return view('template/header') . view('addpage') . view('template/footer');
         return view('addpage') ;
     }
     public function addData()
